@@ -1,10 +1,19 @@
 import './App.css';
+import { Header } from './components/Header/Header';
 
 function App() {
 
-  console.log(process.env.REACT_APP_KEY)
   return (
     <div className="App">
+
+      {/* Login */}
+
+      {/* Inside */}
+      <div className="momentsGallery">
+        {/* Header */}
+        <Header />
+        {/* Body */}
+      </div>
 
     </div>
   );
