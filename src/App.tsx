@@ -12,6 +12,7 @@ function App() {
       <div className="momentsGallery">
         {/* Header */}
         <Header />
+
         {/* Body */}
       </div>
 
