@@ -1,7 +1,9 @@
-import { Box } from '@mui/material';
+import { Box} from '@mui/material';
 import InputSection from './InputSection/InputSection';
 
 function Feed() {
+
+
     return (
         <Box
             sx={{
