@@ -24,10 +24,9 @@ const InputSection = () => {
         <Input
           type='text'
           placeholder='Create memory'
-
+          disableUnderline={true}
           sx={{
             width: '80%',
-            border: 'none'
           }}
         />
         <AddPhotoAlternateOutlinedIcon
