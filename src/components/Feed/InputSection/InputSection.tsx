@@ -32,15 +32,23 @@ const InputSection = () => {
         <AddPhotoAlternateOutlinedIcon
           sx={{
             color: 'gray',
-            paddingLeft: 1,
-            paddingRight: 1
+            padding: 1,
+            cursor: 'pointer',
+            ':hover': {
+              backgroundColor: 'lightgray',
+              borderRadius: 1
+            }
           }}
         />
         <AddLinkIcon
           sx={{
             color: 'gray',
-            paddingLeft: 1,
-            paddingRight: 1
+            padding: 1,
+            cursor: 'pointer',
+            ':hover': {
+              backgroundColor: 'lightgray',
+              borderRadius: 1
+            }
           }}
         />
       </Box>
