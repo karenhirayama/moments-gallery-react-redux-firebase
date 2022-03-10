@@ -1,12 +1,15 @@
-import { Box } from '@mui/material'
-import React from 'react'
-import InputSection from './InputSection/InputSection'
+import { Box } from '@mui/material';
+import InputSection from './InputSection/InputSection';
 
 function Feed() {
     return (
-        <>
+        <Box
+            sx={{
+                marginTop: 2
+            }}
+        >
             <InputSection />
-        </>
+        </Box>
     )
 }
 
