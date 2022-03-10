@@ -1,4 +1,4 @@
-import { Avatar, Box, ListItemIcon, Menu, MenuItem, Typography } from '@mui/material'
+import { Avatar, Box, ListItemIcon, Menu, MenuItem } from '@mui/material'
 import logo from '../logo.svg';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useState } from 'react';
