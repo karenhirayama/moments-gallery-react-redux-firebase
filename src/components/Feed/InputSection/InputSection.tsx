@@ -1,5 +1,6 @@
 import { Avatar, Box, Divider, Input, Modal, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 
 const InputSection = () => {
 
@@ -17,7 +18,7 @@ const InputSection = () => {
     <>
       <Box
         sx={{
-          border: '2px solid black',
+          border: '2px solid lightgray',
           borderRadius: 1,
           display: 'flex',
           alignItems: 'center',
@@ -64,15 +65,35 @@ const InputSection = () => {
               height: 230
             }}
           >
-            <Typography
+            <Box
               sx={{
-                textAlign: 'center',
-                fontSize: 18,
-                paddingBottom: 2
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                pl: 2,
+                pr: 2,
+                pb: 1,
               }}
             >
-              Create post in your gallery
-            </Typography>
+              <Typography
+                sx={{
+                  fontSize: 18,
+                }}
+              >
+                Create post in your gallery
+              </Typography>
+              <CloseIcon
+                sx={{
+                  cursor: 'pointer',
+                  p: 1,
+                  '&:hover': {
+                    backgroundColor: 'whitesmoke',
+                    borderRadius: 5,                    
+                  }
+                }}
+                onClick={handleCloseModalInput}
+              />
+            </Box>
             <Divider variant="middle" />
             <Box>
               <TextField
@@ -117,15 +138,6 @@ const InputSection = () => {
                 marginTop: 2
               }}
             >
-              <Typography
-                sx={{
-                  cursor: 'pointer',
-                  marginRight: 2,
-                }}
-                onClick={handleCloseModalInput}
-              >
-                Cancel
-              </Typography>
               <Typography
                 sx={{
                   cursor: 'pointer',

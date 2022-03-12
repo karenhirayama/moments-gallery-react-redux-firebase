@@ -6,7 +6,7 @@ export const Post = () => {
     return (
         <Card
             sx={{
-                border: '2px solid black',
+                border: '2px solid lightgray',
                 borderRadius: 1,
                 display: 'flex',
                 flexDirection: 'column',

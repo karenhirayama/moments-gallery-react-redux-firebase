@@ -8,7 +8,7 @@ export const Quote = () => {
     return (
         <Box
             sx={{
-                border: '1px solid black',
+                border: '1px solid lightgray',
                 borderRadius: 2,
                 marginLeft: 4,
                 maxWidth: 420,
@@ -61,7 +61,7 @@ export const Quote = () => {
                         paddingRight: 2,
                         paddingTop: 0.4,
                         paddingBottom: 0.4,
-                        backgroundColor: '#79b4fd',
+                        backgroundColor: '#4185ca',
                         color: 'white',
                         cursor: 'pointer',
                         '&:hover': {
