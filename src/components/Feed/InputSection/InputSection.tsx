@@ -24,7 +24,7 @@ const InputSection = () => {
           justifyContent: 'space-between',
           padding: 1,
           maxWidth: 600,
-          marginBottom: 3
+          marginBottom: 3,
         }}
       >
         <Avatar

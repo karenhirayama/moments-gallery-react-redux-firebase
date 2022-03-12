@@ -1,8 +1,7 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, createTheme, Typography } from '@mui/material';
 import quoteIcon from './quote-icon.svg';
 import TwitterIcon from '@mui/icons-material/Twitter';
-
 
 export const Quote = () => {
 
@@ -13,6 +12,7 @@ export const Quote = () => {
                 borderRadius: 2,
                 marginLeft: 4,
                 maxWidth: 420,
+                backgroundColor: 'white',
             }}
         >
             <Box

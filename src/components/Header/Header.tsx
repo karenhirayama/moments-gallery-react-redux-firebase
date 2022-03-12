@@ -3,7 +3,6 @@ import logo from '../logo.svg';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useState } from 'react';
 
-
 export const Header = () => {
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -17,67 +16,78 @@ export const Header = () => {
     return (
         <Box
             sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                backgroundColor: 'white',
-                padding: 2,
-                minWidth: 1050,
+                width: '100vw',
+                justifyContent: 'center',
             }}
         >
-            <img src={logo} alt='Logo' style={{ width: '4.5rem' }} />
             <Box
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
+                    justifyContent: 'space-between',
                     alignItems: 'center',
+                    backgroundColor: 'white',
+                    paddingTop: 2,
+                    paddingRight: 4,
+                    paddingBottom: 2,
+                    paddingLeft: 4,
+                    maxWidth: 1050,
+                    margin: 'auto',
                 }}
             >
+                <img src={logo} alt='Logo' style={{ width: '4.5rem' }} />
                 <Box
                     sx={{
                         display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                    onClick={handleClick}
-                >
-                    <Avatar
-                        src='https://avatars.githubusercontent.com/u/89299893?v=4'
-                    />
-                </Box>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
+                        flexDirection: 'row',
                         alignItems: 'center',
                     }}
                 >
-                    <Menu
-                        id="demo-positioned-menu"
-                        aria-labelledby="demo-positioned-button"
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        anchorOrigin={{
-                            vertical: 95,
-                            horizontal: 'right',
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
                         }}
-                        transformOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
+                        onClick={handleClick}
+                    >
+                        <Avatar
+                            src='https://avatars.githubusercontent.com/u/89299893?v=4'
+                        />
+                    </Box>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
                         }}
                     >
+                        <Menu
+                            id="demo-positioned-menu"
+                            aria-labelledby="demo-positioned-button"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 95,
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                        >
 
-                        <MenuItem>
-                            <ListItemIcon>
-                                <LogoutIcon fontSize="small" />
-                            </ListItemIcon>
-                            Logout
-                        </MenuItem>
-                    </Menu>
+                            <MenuItem>
+                                <ListItemIcon>
+                                    <LogoutIcon fontSize="small" />
+                                </ListItemIcon>
+                                Logout
+                            </MenuItem>
+                        </Menu>
+                    </Box>
                 </Box>
             </Box>
         </Box >

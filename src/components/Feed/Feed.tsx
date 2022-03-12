@@ -9,6 +9,7 @@ function Feed() {
         <Box
             sx={{
                 marginTop: 4,
+                paddingLeft: 4,
             }}
         >
             <InputSection />
