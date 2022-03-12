@@ -7,7 +7,7 @@ function Feed() {
     return (
         <Box
             sx={{
-                marginTop: 2
+                marginTop: 4,
             }}
         >
             <InputSection />

@@ -1,6 +1,4 @@
-import { Avatar, Box, Input, Modal, Typography } from '@mui/material';
-import AddPhotoAlternateOutlinedIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
-import AddLinkIcon from '@mui/icons-material/AddLink';
+import { Avatar, Box, Divider, Input, Modal, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 
 const InputSection = () => {
@@ -24,7 +22,7 @@ const InputSection = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: 1,
-          maxWidth: 687
+          maxWidth: 600
         }}
       >
         <Avatar
@@ -38,33 +36,10 @@ const InputSection = () => {
           placeholder='Create memory'
           disableUnderline={true}
           sx={{
-            width: '80%',
+            width: '100%',
           }}
           onClick={handleOpenModal}
         />
-        <AddPhotoAlternateOutlinedIcon
-          sx={{
-            color: 'gray',
-            padding: 1,
-            cursor: 'pointer',
-            ':hover': {
-              backgroundColor: 'lightgray',
-              borderRadius: 1
-            }
-          }}
-        />
-        <AddLinkIcon
-          sx={{
-            color: 'gray',
-            padding: 1,
-            cursor: 'pointer',
-            ':hover': {
-              backgroundColor: 'lightgray',
-              borderRadius: 1
-            }
-          }}
-        />
-
         <Modal
           open={openModal}
           onClose={handleClose}
@@ -74,22 +49,44 @@ const InputSection = () => {
           <Box
             sx={{
               position: 'absolute' as 'absolute',
-              top: '20%',
+              top: '30%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
               width: 400,
               bgcolor: 'background.paper',
               border: '2px solid #000',
               boxShadow: 24,
-              p: 4,
+              p: 3,
+              height: 200
             }}
           >
-            <Input
-              type='text'
-              placeholder='Create memory'
-              disableUnderline={true}
+            <Typography
               sx={{
-                width: '80%',
+                textAlign: 'center',
+                fontSize: 18,
+                paddingBottom: 2
+              }}
+            >
+              Create memory in your gallery
+            </Typography>
+            <Divider variant="middle" />
+            <TextField
+              id="standard-multiline-static"
+              multiline
+              rows={5}
+              placeholder='Register your memory'
+              variant="standard"
+              InputProps={{
+                disableUnderline: true,
+              }}
+              inputProps={{
+                maxLength: 200,
+              }}
+              sx={{
+                width: '92%',
+                paddingLeft: 1,
+                paddingRight: 4,
+                margin: 1
               }}
             />
           </Box>
