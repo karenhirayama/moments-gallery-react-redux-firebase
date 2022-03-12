@@ -4,18 +4,18 @@ import { Post } from './Post/Post';
 
 function Feed() {
 
-
     return (
-        <Box
-            sx={{
-                marginTop: 4,
-                paddingLeft: 4,
-            }}
-        >
-            <InputSection />
-            <Post />
-            <Post />
-        </Box>
+            <Box
+                sx={{
+                    marginTop: 4,
+                    paddingLeft: 4,
+                    marginRight: 3
+                }}
+            >
+                <InputSection />
+                <Post />
+                <Post />
+            </Box>
     )
 }
 

@@ -135,18 +135,27 @@ const InputSection = () => {
               sx={{
                 display: 'flex',
                 justifyContent: 'flex-end',
-                marginTop: 2
+                marginTop: 1
               }}
             >
               <Typography
-                sx={{
-                  cursor: 'pointer',
-                  paddingLeft: 2,
-                  paddingRight: 2,
-                  border: '1px solid blue',
-                  borderRadius: 1,
-                  marginRight: 2
-                }}
+                    sx={{
+                      border: '1px solid white',
+                      borderRadius: 1,
+                      paddingLeft: 2,
+                      paddingRight: 2,
+                      paddingTop: 0.4,
+                      paddingBottom: 0.4,
+                      backgroundColor: '#4185ca',
+                      color: 'white',
+                      cursor: 'pointer',
+                      marginRight: 2,
+                      '&:hover': {
+                          color: '#4185CA',
+                          backgroundColor: 'white',
+                          borderColor: '#4185CA'
+                      }
+                  }}
               >
                 Post
               </Typography>
