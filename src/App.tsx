@@ -12,15 +12,13 @@ function App() {
 
       {/* Inside */}
       <div className="momentsGallery">
-        {/* Header */}
-        <Header />
-
-        <div className="momentsGallery__body">
-        <Feed />
-        <Insides />
+        <div className="momentsGallery__header">
+          <Header />
         </div>
-
-        {/* Body */}
+        <div className="momentsGallery__body">
+          <Feed />
+          <Insides />
+        </div>
       </div>
 
     </div>

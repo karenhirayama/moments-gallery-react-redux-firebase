@@ -7,9 +7,24 @@
 .momentsGallery {
   display: flex;
   flex-direction: column;
-  min-width: 75%;
+  align-items: center;
+  width: 100vw;
+}
+
+.momentsGallery__header {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  z-index: 2;
+  background-color: white;
 }
 
 .momentsGallery__body {
   display: flex;
+  justify-content: center;
+  position: relative;
+  top: 72px;
+  background-color: rgb(236, 246, 253);
+  width: 100vw;
 }

@@ -22,7 +22,8 @@ export const Header = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 backgroundColor: 'white',
-                marginTop: 2
+                padding: 2,
+                minWidth: 1050,
             }}
         >
             <img src={logo} alt='Logo' style={{ width: '4.5rem' }} />
@@ -39,7 +40,6 @@ export const Header = () => {
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        marginLeft: 2
                     }}
                     onClick={handleClick}
                 >
@@ -53,7 +53,6 @@ export const Header = () => {
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        marginLeft: 2,
                     }}
                 >
                     <Menu
@@ -63,7 +62,7 @@ export const Header = () => {
                         open={open}
                         onClose={handleClose}
                         anchorOrigin={{
-                            vertical: 100,
+                            vertical: 95,
                             horizontal: 'right',
                         }}
                         transformOrigin={{
