@@ -1,5 +1,6 @@
-import { Box} from '@mui/material';
+import { Box } from '@mui/material';
 import InputSection from './InputSection/InputSection';
+import { Post } from './Post/Post';
 
 function Feed() {
 
@@ -11,6 +12,8 @@ function Feed() {
             }}
         >
             <InputSection />
+            <Post />
+            <Post />
         </Box>
     )
 }

@@ -18,11 +18,13 @@ const InputSection = () => {
       <Box
         sx={{
           border: '2px solid black',
+          borderRadius: 1,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: 1,
-          maxWidth: 600
+          maxWidth: 600,
+          marginBottom: 3
         }}
       >
         <Avatar
@@ -55,9 +57,10 @@ const InputSection = () => {
               width: 400,
               bgcolor: 'background.paper',
               border: '2px solid #000',
+              borderRadius: 1,
               boxShadow: 24,
               p: 3,
-              height: 200
+              height: 230
             }}
           >
             <Typography
@@ -70,30 +73,48 @@ const InputSection = () => {
               Create post in your gallery
             </Typography>
             <Divider variant="middle" />
-            <TextField
-              id="standard-multiline-static"
-              multiline
-              rows={5}
-              placeholder='Description'
-              variant="standard"
-              InputProps={{
-                disableUnderline: true,
-              }}
-              inputProps={{
-                maxLength: 130,
-              }}
-              sx={{
-                width: '92%',
-                paddingLeft: 1,
-                paddingRight: 4,
-                margin: 1,
-              }}
-            />
+            <Box>
+              <TextField
+                id="standard-multiline-static"
+                multiline
+                rows={3}
+                placeholder='Description'
+                variant="standard"
+                InputProps={{
+                  disableUnderline: false,
+                }}
+                inputProps={{
+                  maxLength: 130,
+                }}
+                sx={{
+                  width: '92%',
+                  paddingLeft: 1,
+                  paddingRight: 4,
+                  margin: 1,
+                }}
+              />
+              <TextField
+                id="standard-multiline-static"
+                rows={1}
+                placeholder='Image URL'
+                variant="standard"
+                InputProps={{
+                  disableUnderline: false,
+                }}
+                sx={{
+                  width: '92%',
+                  paddingLeft: 1,
+                  paddingRight: 4,
+                  margin: 1,
+                }}
+              />
+            </Box>
             <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'flex-end'
-            }}
+              sx={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                marginTop: 2
+              }}
             >
               <Typography
                 sx={{
@@ -110,7 +131,8 @@ const InputSection = () => {
                   paddingLeft: 2,
                   paddingRight: 2,
                   border: '1px solid blue',
-                  borderRadius: 1
+                  borderRadius: 1,
+                  marginRight: 2
                 }}
               >
                 Post

@@ -1,6 +1,7 @@
 import './App.css';
 import Feed from './components/Feed/Feed';
 import { Header } from './components/Header/Header';
+import { Insides } from './components/Insides/Insides';
 
 function App() {
 
@@ -13,7 +14,12 @@ function App() {
       <div className="momentsGallery">
         {/* Header */}
         <Header />
+
+        <div className="body">
         <Feed />
+        <Insides />
+        </div>
+
         {/* Body */}
       </div>
 

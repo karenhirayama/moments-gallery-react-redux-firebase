@@ -22,7 +22,7 @@ export const Header = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 backgroundColor: 'white',
-                marginTop: 1
+                marginTop: 2
             }}
         >
             <img src={logo} alt='Logo' style={{ width: '4.5rem' }} />
