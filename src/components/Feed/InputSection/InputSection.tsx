@@ -3,14 +3,14 @@ import { useState } from 'react';
 
 const InputSection = () => {
 
-  const [openModal, setOpenModal] = useState(false);
+  const [openModalInput, setOpenModalInput] = useState(false);
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
+  const handleOpenModalInput = () => {
+    setOpenModalInput(true);
   }
 
-  const handleClose = () => {
-    setOpenModal(false);
+  const handleCloseModalInput = () => {
+    setOpenModalInput(false);
   }
 
   return (
@@ -33,16 +33,16 @@ const InputSection = () => {
         />
         <Input
           type='text'
-          placeholder='Create memory'
+          placeholder='Create post'
           disableUnderline={true}
           sx={{
             width: '100%',
           }}
-          onClick={handleOpenModal}
+          onClick={handleOpenModalInput}
         />
         <Modal
-          open={openModal}
-          onClose={handleClose}
+          open={openModalInput}
+          onClose={handleCloseModalInput}
           aria-labelledby="keep-mounted-modal-title"
           aria-describedby="keep-mounted-modal-description"
         >
@@ -67,28 +67,55 @@ const InputSection = () => {
                 paddingBottom: 2
               }}
             >
-              Create memory in your gallery
+              Create post in your gallery
             </Typography>
             <Divider variant="middle" />
             <TextField
               id="standard-multiline-static"
               multiline
               rows={5}
-              placeholder='Register your memory'
+              placeholder='Description'
               variant="standard"
               InputProps={{
                 disableUnderline: true,
               }}
               inputProps={{
-                maxLength: 200,
+                maxLength: 130,
               }}
               sx={{
                 width: '92%',
                 paddingLeft: 1,
                 paddingRight: 4,
-                margin: 1
+                margin: 1,
               }}
             />
+            <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-end'
+            }}
+            >
+              <Typography
+                sx={{
+                  cursor: 'pointer',
+                  marginRight: 2,
+                }}
+                onClick={handleCloseModalInput}
+              >
+                Cancel
+              </Typography>
+              <Typography
+                sx={{
+                  cursor: 'pointer',
+                  paddingLeft: 2,
+                  paddingRight: 2,
+                  border: '1px solid blue',
+                  borderRadius: 1
+                }}
+              >
+                Post
+              </Typography>
+            </Box>
           </Box>
         </Modal>
 
