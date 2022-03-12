@@ -15,7 +15,7 @@ function App() {
         {/* Header */}
         <Header />
 
-        <div className="body">
+        <div className="momentsGallery__body">
         <Feed />
         <Insides />
         </div>

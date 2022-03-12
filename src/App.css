@@ -9,3 +9,7 @@
   flex-direction: column;
   min-width: 75%;
 }
+
+.momentsGallery__body {
+  display: flex;
+}
