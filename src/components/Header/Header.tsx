@@ -6,6 +6,7 @@ import { useState } from 'react';
 export const Header = () => {
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -13,6 +14,7 @@ export const Header = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
     return (
         <Box
             sx={{
