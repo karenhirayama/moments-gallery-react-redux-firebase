@@ -44,16 +44,38 @@ export const LoginApp = () => {
     e.preventDefault();
 
     auth.signInWithEmailAndPassword(valuesLoginApp.email, valuesLoginApp.password)
-    .then(userAuth => {
-      dispatch(login({
-        email: userAuth.user?.email,
-        uid: userAuth.user?.uid,
-        displayName: userAuth.user?.displayName,
-        photoURL: userAuth.user?.photoURL
-      }))
-    })
-    .catch(error => alert(error));
+      .then(userAuth => {
+        dispatch(login({
+          email: userAuth.user?.email,
+          uid: userAuth.user?.uid,
+          displayName: userAuth.user?.displayName,
+          photoURL: userAuth.user?.photoURL
+        }))
+      })
+      .catch(error => alert(error));
   }
+
+  const register = () => {
+    if (!valuesRegisterApp.nameUser) {
+      return alert('Please enter a name')
+    }
+
+    auth.createUserWithEmailAndPassword(valuesRegisterApp.email, valuesRegisterApp.password)
+      .then((userAuth) => {
+        userAuth.user?.updateProfile({
+          displayName: valuesRegisterApp.nameUser,
+          photoURL: valuesRegisterApp.imgUser
+        })
+          .then(() => {
+            dispatch(login({
+              email: userAuth.user?.email,
+              uid: userAuth.user?.uid,
+              displayName: valuesRegisterApp.nameUser,
+              photoURL: valuesRegisterApp.imgUser
+            }))
+          })
+      }).catch(error => alert(error))
+  };
 
   const [isNewUser, setIsNewUser] = useState(false);
 
@@ -312,6 +334,7 @@ export const LoginApp = () => {
                         borderColor: '#4185CA'
                       }
                     }}
+                    onClick={register}
                   >
                     Sign in
                   </Typography>
