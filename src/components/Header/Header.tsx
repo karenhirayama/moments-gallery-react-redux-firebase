@@ -2,8 +2,20 @@ import { Avatar, Box, ListItemIcon, Menu, MenuItem } from '@mui/material'
 import logo from '../logo.svg';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from '../../features/userSlice';
+import { auth } from '../../firebase/firebase';
 
 export const Header = () => {
+
+    const user = useSelector(selectUser);
+
+    const dispatch = useDispatch();
+
+    const logoutOfApp = () => {
+        dispatch(logout());
+        auth.signOut();
+    }
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -55,7 +67,8 @@ export const Header = () => {
                         onClick={handleClick}
                     >
                         <Avatar
-                            src='https://avatars.githubusercontent.com/u/89299893?v=4'
+                            src={user.user.photoURL}
+                            
                         />
                     </Box>
                     <Box
@@ -82,7 +95,9 @@ export const Header = () => {
                             }}
                         >
 
-                            <MenuItem>
+                            <MenuItem
+                                onClick={logoutOfApp}
+                            >
                                 <ListItemIcon>
                                     <LogoutIcon fontSize="small" />
                                 </ListItemIcon>
