@@ -5,6 +5,9 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import PersonIcon from '@mui/icons-material/Person';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import logo from '../logo.svg';
+import { useDispatch } from 'react-redux';
+import { auth } from '../../firebase/firebase';
+import { login } from '../../features/userSlice';
 interface StateLoginApp {
   email: string;
   password: string;
@@ -33,7 +36,24 @@ export const LoginApp = () => {
     email: '',
     password: '',
     showPassword: false,
-  })
+  });
+
+  const dispatch = useDispatch();
+
+  const loginToApp = (e: any) => {
+    e.preventDefault();
+
+    auth.signInWithEmailAndPassword(valuesLoginApp.email, valuesLoginApp.password)
+    .then(userAuth => {
+      dispatch(login({
+        email: userAuth.user?.email,
+        uid: userAuth.user?.uid,
+        displayName: userAuth.user?.displayName,
+        photoURL: userAuth.user?.photoURL
+      }))
+    })
+    .catch(error => alert(error));
+  }
 
   const [isNewUser, setIsNewUser] = useState(false);
 
@@ -163,6 +183,7 @@ export const LoginApp = () => {
                         borderColor: '#4185CA'
                       }
                     }}
+                    onClick={loginToApp}
                   >
                     Login
                   </Typography>
