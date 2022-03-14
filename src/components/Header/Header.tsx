@@ -68,8 +68,9 @@ export const Header = () => {
                     >
                         <Avatar
                             src={user.user.photoURL}
-                            
-                        />
+                        >
+                            {user.user.displayName[0]}
+                        </Avatar>
                     </Box>
                     <Box
                         sx={{

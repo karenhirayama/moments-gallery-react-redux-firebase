@@ -1,8 +1,40 @@
 import { Avatar, Box, Divider, Input, Modal, TextField, Typography } from '@mui/material';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../features/userSlice';
+import firebase from 'firebase/compat/app';
+import { db } from '../../../firebase/firebase';
+
+interface StateInputValues {
+  message: string;
+  imagePostURL?: string;
+}
 
 const InputSection = () => {
+
+  const user = useSelector(selectUser);
+
+  const [inputValues, setInputValues] = useState<StateInputValues>({
+    message: '',
+    imagePostURL: '',
+  });
+
+  const handleChangeInput = (prop: keyof StateInputValues) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValues({ ...inputValues, [prop]: event.target.value });
+  };
+
+  const sendPost = (e: any) => {
+    e.preventDefault();
+
+    db.collection('post').add({
+      name: user.user.displayName,
+      message: inputValues.message,
+      photoUrl: user.user.photoURL || '',
+      imagePostUrl: inputValues.imagePostURL,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    })
+  }
 
   const [openModalInput, setOpenModalInput] = useState(false);
 
@@ -12,7 +44,7 @@ const InputSection = () => {
 
   const handleCloseModalInput = () => {
     setOpenModalInput(false);
-  }
+  };
 
   return (
     <>
@@ -30,11 +62,14 @@ const InputSection = () => {
         }}
       >
         <Avatar
-          src='https://avatars.githubusercontent.com/u/89299893?v=4'
           sx={{
-            marginRight: 2
+            marginRight: 2,
+            marginLeft: 1,
           }}
-        />
+          src={user.user.photoURL}
+        >
+          {user.user.displayName[0]}
+        </Avatar>
         <Input
           type='text'
           placeholder='Create post'
@@ -48,7 +83,7 @@ const InputSection = () => {
           open={openModalInput}
           onClose={handleCloseModalInput}
           aria-labelledby="keep-mounted-modal-title"
-          aria-describedby="keep-mounted-modal-description"
+          aria-describedby="keep-mounted-modal-message"
         >
           <Box
             sx={{
@@ -88,7 +123,7 @@ const InputSection = () => {
                   p: 1,
                   '&:hover': {
                     backgroundColor: 'whitesmoke',
-                    borderRadius: 5,                    
+                    borderRadius: 5,
                   }
                 }}
                 onClick={handleCloseModalInput}
@@ -100,7 +135,7 @@ const InputSection = () => {
                 id="standard-multiline-static"
                 multiline
                 rows={3}
-                placeholder='Description'
+                placeholder='message'
                 variant="standard"
                 InputProps={{
                   disableUnderline: false,
@@ -114,6 +149,8 @@ const InputSection = () => {
                   paddingRight: 4,
                   margin: 1,
                 }}
+                value={inputValues.message}
+                onChange={handleChangeInput('message')}
               />
               <TextField
                 id="standard-multiline-static"
@@ -123,12 +160,17 @@ const InputSection = () => {
                 InputProps={{
                   disableUnderline: false,
                 }}
+                inputProps={{
+                  maxLength: 300,
+                }}
                 sx={{
                   width: '92%',
                   paddingLeft: 1,
                   paddingRight: 4,
                   margin: 1,
                 }}
+                value={inputValues.imagePostURL}
+                onChange={handleChangeInput('imagePostURL')}
               />
             </Box>
             <Box
@@ -139,23 +181,24 @@ const InputSection = () => {
               }}
             >
               <Typography
-                    sx={{
-                      border: '1px solid white',
-                      borderRadius: 1,
-                      paddingLeft: 2,
-                      paddingRight: 2,
-                      paddingTop: 0.4,
-                      paddingBottom: 0.4,
-                      backgroundColor: '#4185ca',
-                      color: 'white',
-                      cursor: 'pointer',
-                      marginRight: 2,
-                      '&:hover': {
-                          color: '#4185CA',
-                          backgroundColor: 'white',
-                          borderColor: '#4185CA'
-                      }
-                  }}
+                sx={{
+                  border: '1px solid white',
+                  borderRadius: 1,
+                  paddingLeft: 2,
+                  paddingRight: 2,
+                  paddingTop: 0.4,
+                  paddingBottom: 0.4,
+                  backgroundColor: '#4185ca',
+                  color: 'white',
+                  cursor: 'pointer',
+                  marginRight: 2,
+                  '&:hover': {
+                    color: '#4185CA',
+                    backgroundColor: 'white',
+                    borderColor: '#4185CA'
+                  }
+                }}
+                onClick={sendPost}
               >
                 Post
               </Typography>
