@@ -8,8 +8,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  background-color: rgb(236, 246, 253);
+  width: 98vw;
 }
 
 .momentsGallery__header {
@@ -26,7 +26,4 @@
   justify-content: center;
   position: relative;
   top: 72px;
-  background-color: rgb(43, 90, 122);
-  width: 100vw;
-  height: 89.9vh;
 }

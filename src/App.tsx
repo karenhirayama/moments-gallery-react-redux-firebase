@@ -48,15 +48,8 @@ function App() {
             <Header />
           </div>
           <div className="momentsGallery__body">
-            <Box
-              sx={{
-                maxWidth: 1050,
-                display: 'flex'
-              }}
-            >
-              <Feed />
-              <Insides />
-            </Box>
+            <Feed />
+            <Insides />
           </div>
         </div>
       }

@@ -26,6 +26,7 @@ const InputSection = () => {
 
   const sendPost = (e: any) => {
     e.preventDefault();
+    setOpenModalInput(false);
 
     db.collection('post').add({
       name: user.user.displayName,
