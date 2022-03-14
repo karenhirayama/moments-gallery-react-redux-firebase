@@ -45,7 +45,7 @@ export const Header = () => {
                     paddingRight: 4,
                     paddingBottom: 2,
                     paddingLeft: 4,
-                    maxWidth: 1050,
+                        maxWidth: 1050,
                     margin: 'auto',
                 }}
             >
