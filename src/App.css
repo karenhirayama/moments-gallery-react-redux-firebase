@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(236, 246, 253);
   }
 
 .momentsGallery {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(236, 246, 253);
-  width: 98vw;
 }
 
 .momentsGallery__header {
@@ -23,7 +22,13 @@
 
 .momentsGallery__body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   position: relative;
   top: 72px;
+}
+
+.momentsGallery__container {
+  display: flex;
+  justify-content: center;
+  position: relative;
 }

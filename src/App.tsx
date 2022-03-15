@@ -1,8 +1,8 @@
-import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Feed from './components/Feed/Feed';
+import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { Insides } from './components/Insides/Insides';
 import { LoginApp } from './components/Login/LoginApp';
@@ -29,7 +29,7 @@ function App() {
         dispatch(logout())
       }
     })
-  }, [dispatch])
+  }, [])
 
   return (
     <div className="App">
@@ -48,8 +48,13 @@ function App() {
             <Header />
           </div>
           <div className="momentsGallery__body">
-            <Feed />
-            <Insides />
+            <div className="momentsGallery__container">
+              <Feed />
+              <Insides />
+            </div>
+            <div className='moments__footer'>
+              <Footer />
+            </div>
           </div>
         </div>
       }

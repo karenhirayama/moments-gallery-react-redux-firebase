@@ -1,9 +1,26 @@
-import React from 'react';
-import { Box, createTheme, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Typography } from '@mui/material';
 import quoteIcon from './quote-icon.svg';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
+
+
 export const Quote = () => {
+
+    const [quotes, setQuotes] = useState<any[]>([]);
+    const [numberQuote, setNumberQuote] = useState(Math.floor(Math.random() * 100))
+
+    useEffect(() => {
+        async function getQuotes() {
+            return await fetch('https://gist.githubusercontent.com/shreyasminocha/7d5dedafc1fe158f82563c1223855177/raw/325d51aca7165b2498971afcff9bed286a52dc0e/quotes.json').then((response) => response.json()).then((data) => setQuotes(data)
+            )
+        };
+        getQuotes()
+    }, []);
+
+    const getNewQuote = () => {
+        setNumberQuote()
+    }
 
     return (
         <Box
@@ -33,7 +50,17 @@ export const Quote = () => {
                         marginBottom: 2,
                     }}
                 >
-                    Aliqua aliquip anim consequat tempor et. Sunt ut excepteur est deserunt. Tempor eiusmod sunt eu pariatur incididunt consequat. Esse culpa sunt aliqua ex et sit est magna ex reprehenderit aliqua.
+                    {quotes[numberQuote]?.quote}
+                </Typography>
+                <Typography
+                    sx={{
+                        marginTop: 1,
+                        marginLeft: 2,
+                        marginRight: 2,
+                        marginBottom: 2,
+                    }}
+                >
+                    {quotes[numberQuote]?.author}
                 </Typography>
             </Box>
             <Box

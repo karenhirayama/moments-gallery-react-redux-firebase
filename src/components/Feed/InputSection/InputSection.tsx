@@ -1,4 +1,4 @@
-import { Avatar, Box, Divider, Input, Modal, styled, TextField, Typography } from '@mui/material';
+import { Avatar, Box, Divider, Input, Modal, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSelector } from 'react-redux';
@@ -88,16 +88,16 @@ const InputSection = () => {
             <Box
               sx={{
                 position: 'absolute' as 'absolute',
-                top: '30%',
+                top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: 400,
+                maxWidth: 400,
                 bgcolor: 'background.paper',
                 border: '2px solid #000',
                 borderRadius: 1,
                 boxShadow: 24,
                 p: 3,
-                height: 230
+                minHeight: 230
               }}
             >
               <Box
