@@ -19,7 +19,7 @@ export const Quote = () => {
     }, []);
 
     const getNewQuote = () => {
-        setNumberQuote()
+        setNumberQuote(Math.floor(Math.random() * 100))
     }
 
     return (
@@ -97,6 +97,7 @@ export const Quote = () => {
                             borderColor: '#4185CA'
                         }
                     }}
+                    onClick={getNewQuote}
                 >
                     New quote
                 </Typography>
