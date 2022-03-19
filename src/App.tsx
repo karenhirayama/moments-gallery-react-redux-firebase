@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Feed from './components/Feed/Feed';
@@ -13,6 +13,7 @@ function App() {
 
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     auth.onAuthStateChanged(userAuth => {
@@ -28,15 +29,22 @@ function App() {
         // User is logged out
         dispatch(logout())
       }
-    })
-  }, [])
+    }
+    )
+  }, []);
+
+  useEffect(() => {
+    setLoading(false);
+  },[loading, user, dispatch]);
+
+  console.log(loading)
 
   return (
     <div className="App">
 
-      {/* Login */}
+      {loading && <h1>Loading</h1>}
 
-      {user.user === null ?
+      {(user.user === null) ?
         (
           <>
             <LoginApp />
