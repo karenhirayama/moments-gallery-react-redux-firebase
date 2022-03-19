@@ -31,11 +31,8 @@ function App() {
       }
     }
     )
+    setLoading(false)
   }, []);
-
-  useEffect(() => {
-    setLoading(false);
-  },[loading, user, dispatch]);
 
   console.log(loading)
 
@@ -44,13 +41,13 @@ function App() {
 
       {loading && <h1>Loading</h1>}
 
-      {(user.user === null) ?
-        (
-          <>
-            <LoginApp />
-          </>
+      {(user.user === null && !loading) &&
+        <>
+          <LoginApp />
+        </>
+      }
 
-        ) :
+      {(user.user !== null && !loading) &&
         <div className="momentsGallery">
           <div className="momentsGallery__header">
             <Header />

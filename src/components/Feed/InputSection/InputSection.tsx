@@ -59,6 +59,8 @@ const InputSection = () => {
           padding: 1,
           marginBottom: 3,
           backgroundColor: 'white',
+          maxWidth: 615,
+
         }}
       >
           <Avatar
